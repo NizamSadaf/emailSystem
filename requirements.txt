@@ -7,7 +7,6 @@ PyAudio==0.2.12
 pypiwin32==223
 pyttsx3==2.90
 pytz==2022.2.1
-pywin32==304
 SpeechRecognition==3.8.1
 sqlparse==0.4.2
 tzdata==2022.2
