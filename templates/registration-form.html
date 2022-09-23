@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <style>
+        .card-body
+        {
+            margin-top : 30px;
+        }
+        .card-title
+        {
+            margin-top: 70px;
+        }
+        
+        .input-group
+        {
+            margin-left: 16%;
+        }
+    </style>
+    <body>
+    <div class="container">
+    <br> <br>
+    
+    <div class="card bg-light">
+        <h4 class="card-title  text-center">Create Account</h4>
+    <article class="card-body mx-auto " style="max-width: 400px;">
+        <form method="POST" action="">
+            {% csrf_token %}
+        <!--<div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+            <input name="fname" class="form-control" placeholder="Full name" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+            {{form.username}}
+        </div><!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+             </div>
+            
+            {{form.email}}
+        </div> <!-- form-group// -->
+        
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            {{form.password1}} <span style="color:red">*Must use upper,lower,number and <br>special symbols <br>*Username can't be used</span></div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            {{form.password2}}<span style="color:red">*Password Must Match</span></div> <!-- form-group// -->                                      
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary btn-block" value="CREATE ACCOUNT"></input>
+        </div> <!-- form-group// -->      
+        <p class="text-center">Have an account? <a href=" {% url "login" %} ">Log In</a> </p>                                                                 
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    </div> 
+    <!--container end.//-->
+    
+    
+    </body>
+    <script>
+        var input_field=document.getElementsByTagName('input')
+        input_field[1].placeholder="Username";
+        input_field[2].placeholder="Email";
+        input_field[3].placeholder="Password(Must 8 digits)";
+        input_field[4].placeholder="Repeat Password";
+    </script>
+</html>
+
+

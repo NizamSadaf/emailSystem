@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'navbar.html' %}
+
+{% load static %}
+     
+    {% block title %}Home{% endblock title %} 
+    
+{% block content %}
+    <style>
+        .box-container
+        {
+            border: 1px solid black;
+            height: 20rem;
+            width: 36rem;
+            position: relative;
+            top: 7rem;
+            left: 17rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #00d4ff;
+            color:black;
+            box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 75%);
+            border-radius: 20px;
+        }
+        h4
+        {
+            font-weight: 600;
+        }
+        body
+        {
+            height: 100vh;
+        }
+        h2
+        {
+            text-align: center;
+            position: relative;
+            top: 5rem;
+        }
+    </style>
+    <body>
+    </body>
+    <h2>
+        Home
+    </h2>
+    <div class="box-container">
+        <h4>You are using this email id:{{email_id}}</h4>
+    </div>
+    </body>
+{% endblock content %}    

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <style>
+        *
+        {
+            padding:0;
+            margin: 0;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .container
+        {
+            height: 30rem;
+            width: 50rem;
+           
+            position: relative;
+            left: 17rem;
+            top: -1rem;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .login-part
+        {
+            width: 20rem;
+            height: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(to right, #96e4ff, #84e8ff, #71ecff, #5bf0ff, #43f4fb);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .login-part:hover,.registration-part:hover
+        {
+            box-shadow: 10px 10px 5px 0px rgba(150,228,255,0.75);
+            transform: translateY(10px);
+        }
+        h3
+        {
+            color: black;
+            font-weight: 600;
+        }
+        .registration-part
+        {
+            width: 20rem;
+            height: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(to right, #96e4ff, #84e8ff, #71ecff, #5bf0ff, #43f4fb);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .logo h3
+        {
+            text-align: center;
+            font-size: 2rem;
+        }
+        .logo
+        {
+            margin-top: 2rem;
+            width: auto;
+        }
+    </style>
+    <body>
+        <div class="logo">
+            <h3>Voice Enabled Read/Write Operation Email System</h3>
+        </div>
+        <div class="container">
+            <div class="login-part">
+                <a href="{% url 'login' %}"><h3>Login</h3></a>
+            </div>
+            <div class="registration-part">
+                <a href="{% url 'registration' %}"><h3>registration</h3></a>   
+            </div>
+        </div>
+    </body>
+</html>

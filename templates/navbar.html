@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> {% block  title %}{%endblock title  %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <style>
+          *
+      {
+          margin:0;
+          padding:0;
+          list-style: none;
+          text-decoration: none;
+          font-family: Montserrat;
+      }
+      .navbar
+      {
+          display: grid;
+          grid-gap : 20px;
+          width: 100%;
+          grid-template-areas: 
+          'nav-items';
+      }
+      .nav-items
+      {
+        grid-area: nav-items;
+        position: relative;
+        left: 17rem;
+      }
+      .header
+      {
+          height:10rem ;
+          width: auto;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+      }
+      /*.navbar
+      {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }*/
+      .navbar ul
+      {
+          display: grid;
+          grid-template-columns: repeat(5,1fr);
+          grid-gap:20px;
+          padding: 3rem;
+      }
+      .logo{
+          width: auto;
+      }
+      .logo img
+      {
+          height: 10rem;
+          width: 8rem;
+      }
+      .list_items 
+      {
+          text-transform: uppercase;
+          list-style: none;
+          text-align: center;
+          padding: 30px;
+          height: 1rem;
+          background-color: #00d4ff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        
+      }
+      .list_items a
+      {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black;
+          text-decoration: none;
+
+          
+      }
+      .list_items a:hover
+      {
+          color: white;
+      }
+      .logout
+      {
+        padding: 2rem;
+      }
+      h3
+      {
+        text-align: center;
+      }
+    </style>
+    </head>
+    <header class="header">
+      <div class="logo">
+        <h3>Voice Enabled Read/Write Operation Email System</h3>
+      </div>
+      <nav class="navbar">
+          <ul class="nav-items">
+              <li class="list_items"><a href="{% url "home" %} ">Home</a></li>
+              <li class="list_items"><a href="{% url "compose" %}">Compose</a></li>
+              <li class="list_items"><a href=" {% url 'inbox' %}">Inbox</a></li>
+              <li class="list_items"><a href="{% url 'outbox' %}">Outbox</a></li>
+              <li class="list_items logout"><a href="{% url "logout" %} ">Logout</a></li>
+             
+          </ul>
+      </nav>
+  </header>
+    
+      {% block content %}
+       
+      {% endblock content %}
+
+</html>

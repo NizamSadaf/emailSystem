@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'navbar.html' %}
+
+{% load static %}
+     
+    {% block title %}Compose{% endblock title %} 
+    
+{% block content %}
+
+    <link rel="stylesheet" href=" {%static 'compose\style.css'%} ">
+    <h4 class="text-center">Compose</h4>
+    <form action="{% url 'speak' %}" method="POST">
+      {% csrf_token %}
+    <div class="mic text-center">
+
+      <button type="submit">
+       <i class="fa fa-microphone"></i>
+      </button>
+      </div>
+    </form>
+     
+    <div class="container">
+        <div class="col-md-12">
+    
+           
+        
+            <form action=" " method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                    <label for="To">To</label>
+                    <input type="email" name="recipient_email" class="form-control" id="To" placeholder="name@example.com" value="{{msg}} ">
+                    <p> </p>
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="Subject">Subject</label>
+                    <input type="text" name="subject" class="form-control" id="Subject" placeholder="Subject">
+                  </div>
+                  <div class="form-group">
+                    <label for="Message">Message</label>
+                    <textarea class="form-control" name="message" id="Message" rows="10" cols="12" placeholder="Write Message..."></textarea>
+                  </div>
+                  <div class="form-group">
+                   <input class="form-control" type="submit" value="Submit" id="button">
+                  </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}    

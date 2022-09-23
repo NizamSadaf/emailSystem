@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <style>
+        .card-body
+        {
+            margin-top : 30px;
+        }
+        .card-title
+        {
+            margin-top: 70px;
+        }
+        .eye
+        {
+            position: absolute;
+            margin-left: 90%;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+        
+    </style>
+    <body>
+    <div class="container">
+    <br> <br>
+    
+    <div class="card bg-light">
+        <h4 class="card-title  text-center">Email ID & Password</h4>
+    <article class="card-body mx-auto " style="max-width: 400px;">
+        <form method="POST" action="">
+            {% csrf_token %}
+         <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+            <input type="text" name="email">
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+             </div>
+            <input type="password" name="uid" class="input password">
+            <span class="eye" onclick="show(this)"><i class="fa fa-eye-slash eye_slash" aria-hidden="true"></i></span>
+        </div>      
+                            
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary btn-block" value="LOGIN" ></input>
+        </div> <!-- form-group// -->      
+        </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    </div> 
+    <!--container end.//-->
+    
+    
+    </body>
+    <script>
+        var input_field=document.getElementsByTagName('input')
+        input_field[1].placeholder="Email ID";
+        input_field[2].placeholder="Password";
+        function show(element) {
+                let password = document.querySelector(".password")
+                let eye_slash = document.querySelector(".eye_slash")
+                eye_slash.classList.toggle("fa-eye-slash")
+                eye_slash.classList.toggle("fa-eye")
+                if (eye_slash.classList[2] == "fa-eye") {
+                    password.type = "show"
+                }
+                else {
+                    password.type = "password"
+                }
+            }
+        
+       
+    </script>
+</html>
+
+

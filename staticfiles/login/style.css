@@ -1,0 +1,118 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+.main
+{
+    
+    background-image: linear-gradient(to right,red,orange);
+    margin-top: 100px!important;
+    margin-left: 10%;
+   
+}
+.login_left
+{
+    text-align: center ;
+    padding: 100px ;
+    color: #fff ;
+    
+}
+.login_left > button
+{
+    border-radius: 50%;
+    text-align: center;
+    width: 200px;
+    margin-left: 16px;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 30px;
+    color: #555;
+    border:none;
+    outline: none;
+
+}
+.login_right
+{
+    background-color:  #f8f8f8;;
+    border-bottom-left-radius: 80px;
+    border-top-left-radius: 80px;
+    text-align: center;
+    padding: 100px;
+}
+.login_right > h2
+{
+    padding-bottom: 50px;
+    color: orangered;
+    font-weight: bolder;
+}
+
+input[type="text"]
+{
+     margin-left: 5px;
+     border:none;
+     outline: none;
+     width: 100%;
+     margin-bottom: 10px;
+     font-size: 20px;
+     background-color: #f8f8f8;
+     border-bottom: 2px solid black;
+}
+input[type="submit"]
+{
+    float: right;
+    border-radius: 50%;
+    margin-top: 10px;
+    width: 100px;
+    background-image: linear-gradient(to right,red,orange);
+    border:none;
+    outline: none;
+    font-size: 20px;
+    padding: 20px;
+}
+@media screen and (max-width:1024px) {
+    
+   .login_left
+   {
+    padding: 20px ;
+   }
+   
+    .login_left > h2
+    {
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    }
+    .login_left > img
+    {
+        width: 200px;
+        
+    }
+}
+@media screen and (max-width:700px) {
+    .main
+    {
+        margin-top:60px !important;
+        margin-left: -5px;
+    }
+    .login_left
+   {
+    padding: 20px ;
+   }
+    .login_right
+    {
+        padding: 10px;
+    }
+    .login_left > h2
+    {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: -8px;
+    }
+    .login_left > img
+    {
+        width: 100px;
+         margin-left: -8px;
+        
+    }
+}

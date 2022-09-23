@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'navbar.html' %}
+
+{% load static %}
+     
+    {% block title %}Compose{% endblock title %} 
+    
+{% block content %}
+<style>
+body
+{
+  
+    height:100vh;
+}
+button
+{
+    
+    margin-left: 48%;
+    height: 30px;
+    width: 50px;
+    outline: none;
+    border: none;
+}
+#To,#Subject,#Messege
+{
+  font-weight: bolder;
+}
+.form-group
+{
+    margin-bottom: 10px;
+}
+#button-submit
+{
+    margin-top: 5px;
+    color: black;
+    background-color: #00d4ff;
+}
+.mic
+{
+    background-color: #00d4ff;
+}
+#button-submit:hover
+{
+    background-color:#096e79;
+}
+
+#Messege
+{
+   height: 200px !important;
+}
+.edit
+{
+    display: flex;
+    position: absolute;
+    top: 37.5rem;
+    left: 65.5rem;
+    gap:0.5rem;
+}
+.edit-start
+{
+    color: black;
+    background-color: #00d4ff;
+    border:none;
+    border-radius: 10px;
+    width: 4.5rem;
+}
+</style>
+    <link rel="stylesheet" href=" {%static 'compose\style.css'%} ">
+    <h4 class="text-center">Compose</h4>
+    <form action=" {% url 'get_email_info' %} " method="post">
+    {% csrf_token %}
+    <button class="mic">
+      <input  type="hidden" name="record">
+      
+      <i class="fa fa-microphone"></i>
+      </button>
+    </form>
+     
+    <div class="container">
+        <div class="col-md-12">
+    
+           
+        
+            <form action=" {% url 'get_email_info_compose' %} " method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                    <label for="To">To</label>
+                    {%if email == None %}
+                    <input type="email" name="recipient_email" class="form-control" id="To" placeholder="name@example.com" value="  ">
+                    {%else%}
+                    <input type="email" name="recipient_email" class="form-control" id="To" placeholder="name@example.com" value=" {{email}} ">
+                    {%endif%}
+            </div>
+                 
+                  <div class="form-group">
+                    <label for="Subject">Subject</label>
+                    {% if subject == None %}
+                      <input type="text" name="subject" class="form-control" id="Subject" placeholder="Subject" value="">
+                     {% else %} 
+                        <input type="text" name="subject" class="form-control" id="Subject" placeholder="Subject" value="{{subject}}">
+                  {%endif%}
+                  </div>
+                  <div class="form-group">
+                    <label for="Message">Message</label>
+                    
+                    <textarea class="form-control" name="messege" id="Messege" rows="7" cols="12" placeholder="Write Message..." spellcheck="value" >{%if messege == None%}{%else%}{{messege}}{%endif%}</textarea>
+                  </div>
+                  <div class="form-group">
+                   <input class="form-control" type="submit" value="SEND" id="button-submit">
+                  </div>
+            </form>
+        </div>
+    </div>
+     
+            <div class="edit">
+                <form action=" {% url 'edit' %} " method="post">
+                    {% csrf_token %}
+                    <input type="text" name="uid" value="{{uid}}" hidden>
+                    <input type="submit" value="Edit" class="edit-start">
+                </form>
+                <form action=" {% url 'start' %} " method="post" class="start">
+                    {% csrf_token %}
+                    <input type="text" name="uid" value="{{uid}}" hidden>
+                    <input type="submit" value="Start" class="edit-start">
+                </form> 
+           
+{% endblock content %}  
+           <!--
+            <div class="edit">
+                <form action=" {% url 'edit' %} " method="post">
+                    {% csrf_token %}
+                    <input type="text" name="uid" value="{{uid}}" hidden>
+                    <input type="submit" value="Edit" class="edit-start">
+                </form>
+                <form action=" {% url 'start' %} " method="post" class="start">
+                    {% csrf_token %}
+                    <input type="text" name="uid" value="{{uid}}" hidden>
+                    <input type="submit" value="Start" class="edit-start">
+                </form>
+              </div>
+           --> 
+      

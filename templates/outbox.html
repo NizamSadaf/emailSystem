@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+
+
+{% extends 'navbar.html' %}
+{% load static %}
+     
+    {% block title %}Outbox{% endblock title %} 
+    
+{% block content %}
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+       
+        <![endif]-->
+ <style>
+    body
+{
+  
+    height:100vh;
+}
+     table, th, td 
+     {
+        border: 1px solid black;
+     }
+     table
+     {
+         margin-top: 5px;
+         width: 100%;
+         height:2rem;
+     }
+     th
+     {
+         text-align: center;
+         width: 33%;
+     }
+     .pagination
+     {
+         margin-left: 40%;
+     }
+     .btn1
+     {
+         background-color: cyan;
+         width: 50px;
+         height: 35px;
+         
+         margin-top: 2px;
+         margin-bottom: 2px;
+     }
+     .btn2
+     {
+       
+         width: 50px;
+         height: 35px;
+         
+         margin-top: 2px;
+         margin-bottom: 2px;
+     }
+     .btn3
+     {
+         width: 50px;
+         height: 35px;
+         
+         margin-top: 2px;
+         margin-bottom: 3px;
+         background-color:#deb660;
+     }
+     .button
+     {
+         margin-left: 23%;
+     }
+     .input
+     {
+        display: inline-block;
+        border-radius: 10px;
+        outline: none;
+     }
+     .myForm
+     {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        padding-top: 0.5rem;
+     }
+     i
+     {
+        color: black;
+     }
+     h7
+     {
+        color:black;
+        font-weight:600;
+     }
+     a
+    {
+        text-decoration:none;
+    }
+ </style>       
+    <body>
+        <h4 class="text-center">Outbox</h4>
+        <form action=" {% url 'outbox_search' %} " method="post">
+            {% csrf_token %}
+            <div class="myForm">
+                 <input type="text" name="subject" class="input" placeholder="Subject">
+                 <input type="submit" name="search" class="input" value="Search">
+            </div>
+        </form>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Status</th>
+            </tr>
+         
+         {% for email in emails %}
+         <tr>
+             <td>{{email.send_date}}</td>
+            <td><a href=" {% url 'showw' email.send_subject %} "><h7>{{email.send_subject}}</h7></a></td>
+            <td>
+             
+                <span class="button">
+                   <a href=" {% url 'showw' email.send_subject %} "><button type="button" class="btn btn1"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+                    <a href=" {% url 'deletee' email.send_subject %} "><button type="button" class="btn btn-danger btn2"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+                    <a href=" {% url 'speakk' email.send_subject %} "><button type="button" class="btn btn-dark btn3"><i class="fa fa-volume-up" aria-hidden="true"></i></button></a>
+                </span>
+             </td>
+
+         </tr>
+        
+        {% endfor %}
+        </table><br>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+           
+                {% if emails.has_previous %}
+                <li class="page-item"> <a class="page-link" href="?page=1">&laquo; first</a></li>
+                <li class="page-item"> <a class="page-link" href="?page={{ emails.previous_page_number }}">previous</a></li>
+                {% endif %}
+        
+                <span class="current">
+                <li class="page-item disabled"><a class="page-link" href="#">Page {{ emails.number }} of {{ emails.paginator.num_pages }}.</a></li>
+                </span>
+        
+                {% if emails.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ emails.next_page_number }}">next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ emails.paginator.num_pages }}">last &raquo;</a></li>
+                {% endif %}
+            </span>
+        </ul>
+    </nav>
+        
+    </body>
+        <script src="" async defer></script>
+{% endblock content %}    

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<style>
+    .body
+    {
+        overflow-y: scroll;
+    }
+    .box1
+    {
+        background-color: #00d4ff;
+        color: black;
+        margin-top: 5%;
+        left:11rem;
+        position: relative;
+        height: auto;
+        width: 800px;
+        padding: 50px;
+        overflow-y: scroll;
+    }
+
+</style>
+
+{% extends 'navbar.html' %}
+
+{% load static %}
+     
+    {% block title %}Inbox{% endblock title %} 
+    
+{% block content %}
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+       
+        <![endif]-->
+    <div class="body"></div>
+      <div class="box1">
+        <div>
+            Date: {{message.email_date}}
+        </div>
+        <div>
+            From: {{message.email_from}}
+        </div>
+        <div>
+            Subject: {{message.email_subject}}
+        </div>
+        <div>
+            Message: <br>
+            {{message.email_body}}
+        </div>
+     </div>
+    </div>
+        <script src="" async defer></script>
+{% endblock content %}    
